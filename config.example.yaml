@@ -1,0 +1,36 @@
+# Copy this to config.yaml and fill in what you have.
+# Missing keys/tools degrade gracefully -- modules skip what they can't run
+# and the pipeline continues with whatever sources are available.
+
+api_keys:
+  censys_id: ""
+  censys_secret: ""
+  shodan: ""
+  github_token: ""  # needed for higher rate limits on GitHub recon modules later
+
+tools:
+  # override if a binary isn't on PATH or you want to pin a specific build
+  amass: "amass"
+  subfinder: "subfinder"
+  httpx: "httpx"
+  naabu: "naabu"
+  nmap: "nmap"
+  gobuster: "gobuster"
+  waybackurls: "waybackurls"
+  trufflehog: "trufflehog"
+  wappalyzer: "wappalyzer"
+  retire: "retire"
+  eyewitness: "eyewitness"
+
+wordlists:
+  subdomains: "~/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt"
+  directories: "~/wordlists/SecLists/Discovery/Web-Content/common.txt"
+
+github:
+  # optional -- stage 6 skips the GitHub secret scan if this is blank
+  org: ""
+
+timeouts:
+  default_seconds: 180
+  github_scan_seconds: 600
+  screenshot_seconds: 600
